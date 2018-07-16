@@ -1,11 +1,6 @@
 class MusicLibraryController
   attr_accessor :path, :songs
 
-  #def initialize(path = "./db/mp3s")
-  #  @path = path
-  #  cli_import = MusicImporter.new(path)
-  #  cli_import.import
-  #end
   @@song_list = []
 
   def initialize(path = "./db/mp3s")
@@ -74,14 +69,6 @@ class MusicLibraryController
     end
   end
 
-  #def list_genres
-  #  genres = Genre.all.sort_by { |genre| genre.name }
-
-  #  genres.each.with_index(1) do |genre, i|
-  #    puts "#{i}. #{genre.name}"
-  #  end
-  #end
-
   def list_songs_by_artist
     puts "Please enter the name of an artist:"
     artist = gets.chomp
@@ -95,7 +82,7 @@ class MusicLibraryController
   end
 
   def list_songs_by_genre
-    puts "Enter the name of a genre:"
+    puts "Please enter the name of a genre:"
     genre = gets.chomp
     songs = Song.all.select { |song| song.genre.name == genre}
     sorted = songs.sort_by { |song| song.name }
